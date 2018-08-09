@@ -1,6 +1,17 @@
 class VendingMachine {
 	constructor() {
-		this.compartments = [];
+		this.compartments = [
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 },
+			{ price: 0, slots: 10 }
+		];
 		this.bank = 0;
 	}
 

@@ -15,23 +15,32 @@ class VendingMachine {
 		this.bank = 0;
 	}
 
-	printProductPrice(product) {}
+	printProductPrice(compartment) {
+		console.log(compartment.price);
+	}
 
 	buyProduct(money, requestedProduct) {
 		acceptMoney(money, requestedProduct);
 	}
 
-	dispenseProduct(money) {
-		//return get product and make change
+	acceptMoney(money, compartment) {
+		if (money >= compartment.price) {
+			this.addToBank(money);
+			return this.dispenseproduct(compartment);
+		} else {
+			return { status: false, reason: 'not enough money' };
+		}
 	}
 
-	removeProduct(product) {}
+	dispenseProduct(compartment) {
+		if (compartment.slots > 0) {
+			compartment.slots -= 1;
+		} else {
+			return { status: false, reason: 'there are no more products left' };
+		}
+	}
 
-	addToBank() {}
-
-	makechange() {}
-
-	acceptMoney(money, requestedProduct) {
-		this.dispenseproduct();
+	addToBank(money) {
+		this.bank += money;
 	}
 }
